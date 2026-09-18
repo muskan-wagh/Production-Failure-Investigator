@@ -1,0 +1,24 @@
+{
+  "name": "production-failure-investigator",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local-first AI production incident investigation tool (NOT a monitoring dashboard)",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "workspaces": [
+    "apps/web",
+    "server",
+    "shared"
+  ],
+  "scripts": {
+    "dev": "concurrently -n api,web \"npm run dev --workspace=@pfi/server\" \"npm run dev --workspace=@pfi/web\"",
+    "build": "npm run build --workspace=@pfi/shared && npm run build --workspace=@pfi/server && npm run build --workspace=@pfi/web",
+    "typecheck": "npm run typecheck --workspace=@pfi/shared && npm run typecheck --workspace=@pfi/server && npm run typecheck --workspace=@pfi/web"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "typescript": "^5.9.2"
+  }
+}

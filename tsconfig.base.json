@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2023"],
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    // Do not auto-include every @types package found by walking up parent
+    // directories (stray global @types outside the repo must not break builds).
+    // Each project opts into the globals it needs via its own "types".
+    "types": [],
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true
+  }
+}
